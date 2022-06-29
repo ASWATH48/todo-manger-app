@@ -1,8 +1,8 @@
 class MainController < ApplicationController
   def index
-    @to = Todo.all
+    @todo = Todo.all
   end
-  
+
   def create
     main = Todo.new(task: params[:task], due_date: params[:due_date], completed: false )
         if main.save
