@@ -21,28 +21,17 @@
         </form>   
     </div>
 
-        <table class="tasks">
+    <table class="tasks">
+        <tr>
             <th class="task-head">Tasks</th>
             <th class="task-head">Due Date</th>
-                 
-                    <% @todo.each do |x| %>
-                    <tr class="task-row">  
-                        <td class="task-col"> 
-                            <%= x.task %>
-                        </td>
-                    
-                        <td class="task-col">      
-                            <%= x.due_date%> 
-                        </td>   
-                        <td>
-                            <a href="/delete/<%=x.id %>">
-                            <button class="btn btn-primary">delete</button>
-                        </a> 
-                           
-                        </td> 
-                      
-                    </tr> 
-                     <% end %> 
-            </table>
-
+        </tr>
+    <% @todo.each do |x| %>
+        <tr class="task-row">  
+            <td class="task-col"><%= x.task %></td>
+            <td class="task-col"><%= x.due_date%></td>   
+            <td><a href="/delete/<%=x.id %>"><button class="btn btn-primary">delete</button></a></td>   
+        </tr> 
+    <% end %> 
+    </table>
 </div>
