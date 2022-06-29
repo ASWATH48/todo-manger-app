@@ -27,7 +27,7 @@
             <th class="task-head">Tasks</th>
             <th class="task-head">Due Date</th>
         </tr>
-    <% @todo.each do |todo| %>
+    <% @todos.each do |todo| %>
         <tr class="task-row">  
             <td class="task-col"><%= todo.task %></td>
             <td class="task-col"><%= todo.due_date%></td>   
