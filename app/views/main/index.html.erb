@@ -8,10 +8,11 @@
                 <tr>
                     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
                     <td>         
-                       <input type="text" class="input-group-text"id="text_inp" name="task" placeholder="Enter the task">   
+                       <input type="text" class="input-group-text"id="text_inp" name="todo[task]" placeholder="Enter the task">   
                     </td>
                     <td>
-                       <input type="date" class="input-group-text" name="due_date" id="date_inp">
+                       <input type="date" class="input-group-text" name="todo[due_date]" id="date_inp">
+                       <input style="display:none;" type="text" name="todo[completed]">
                     </td>
                     <td>
                        <button type="submit" class="btn btn-primary">add</button>
@@ -26,11 +27,11 @@
             <th class="task-head">Tasks</th>
             <th class="task-head">Due Date</th>
         </tr>
-    <% @todo.each do |x| %>
+    <% @todo.each do |todo| %>
         <tr class="task-row">  
-            <td class="task-col"><%= x.task %></td>
-            <td class="task-col"><%= x.due_date%></td>   
-            <td><a href="/delete/<%=x.id %>"><button class="btn btn-primary">delete</button></a></td>   
+            <td class="task-col"><%= todo.task %></td>
+            <td class="task-col"><%= todo.due_date%></td>   
+            <td><a href="/delete/<%= todo.id %>"><button class="btn btn-primary">delete</button></a></td>   
         </tr> 
     <% end %> 
     </table>

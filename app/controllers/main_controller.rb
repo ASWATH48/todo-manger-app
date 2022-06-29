@@ -4,8 +4,8 @@ class MainController < ApplicationController
   end
 
   def create
-    main = Todo.new(task: params[:task], due_date: params[:due_date], completed: false )
-        if main.save
+    @main = Todo.new(todo_params)
+        if @main.save
           render plain: "success"
       
         else 
@@ -15,10 +15,14 @@ class MainController < ApplicationController
   
 def delete
         @del = Todo.find(params[:id])
-        if @del.destroy
+      if @del.destroy
         redirect_to "/"
-        end
+      end
 end
 
+private
+def todo_params
+  params.require(:todo).permit(:task, :due_date, :completed)
+end
 
 end
