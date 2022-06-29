@@ -1,8 +1,8 @@
 class MainController < ApplicationController
   def index
-    new
-   
-     end
+    @to = Todo.all
+  end
+  
   def create
     main = Todo.new(task: params[:task], due_date: params[:due_date], completed: false )
         if main.save
@@ -12,14 +12,7 @@ class MainController < ApplicationController
           render plain: "failed"
          end
      end
-    
-  # def get_tasks
- # render plain: Todo.all.map {|todo| todo.to_pleasant_string}.join("\n")
-   # end
-def new 
-     @to = Todo.all
-end
-
+  
 def delete
         @del = Todo.find(params[:id])
         if @del.destroy
